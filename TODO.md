@@ -19,23 +19,23 @@ HTML
 CRUD CAKE..!
 
 CREATE 
-    [] client ajax post
-        [] grabs the values from the input and put into object
-        [] send object to server
-        [] recalls the append function
-    [] server router.post
-        [] sends req.body as a variable to DB in SQL 
-            [] will be an INSERT 
+    [x] client ajax post
+        [x] grabs the values from the input and put into object
+        [x] send object to server
+        [x] recalls the append function
+    [x] server router.post
+        [x] sends req.body as a variable to DB in SQL 
+            [x] will be an INSERT 
 
 READ
-    [] client ajax get
-        [] grabs what is sent from server and appends to DOM
-            [] will need to loop over the sent object
-            [] appends an update button
-            [] will append the tr with data for id and completed
-    []server router.get
-        [] grabs the table info from DB w/ SELECT
-        [] sends back info to client to append
+    [x] client ajax get
+        [x] grabs what is sent from server and appends to DOM
+            [x] will need to loop over the sent object
+            [x] appends an update button
+            [x] will append the tr with data for id and completed
+    [x]server router.get
+        [x] grabs the table info from DB w/ SELECT
+        [x] sends back info to client to append
 
 UPDATE
     [] client ajax put
@@ -47,9 +47,9 @@ UPDATE
             [] use an UPDATE to change from false to true
 
 DELETE
-    [] client ajax delete
-        [] use the id data and (this) to get the id current item
-        [] send that id to the server
+    [x] client ajax delete
+        [x] use the id data and (this) to get the id current item
+        [x] send that id to the server
     [] server router.delete
         [] use '/:id' to get the item sent from client
             [] SQL DELETE to remove from the server

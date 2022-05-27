@@ -7,11 +7,31 @@ $(document).ready(function () {
 function addClickHandlers() {
     $('#submitBtn').on('click', handleSubmit);
     //   create handlers for delete and completed item
+    $(document).on('click', '.deleteBtn', deleteTodo)
 }
 
 function handleSubmit() {
     //   on submit (POST) going to grab input value into a variable, will run addTodo with that variable
     console.log('button working')
+    let todo = {};
+    todo.list_item = $('#listItem').val();
+    addTodo(todo);
+}
+
+function addTodo(todo) {
+    $.ajax({
+        type: 'POST',
+        url: '/todo',
+        data: todo,
+    })
+        .then(function (response) {
+            console.log('Response from server.', response);
+            refreshTodo();
+        })
+        .catch(function (error) {
+            console.log('Error in POST', error)
+            alert('Unable to add item at this time. Please try again later.');
+        });
 }
 
 function refreshTodo() {
@@ -23,7 +43,7 @@ function refreshTodo() {
         url: '/todo'
     })
         .then((response) => {
-            console.log(response);
+            console.log('in client GET', response);
             renderTodo(response);
         })
         .catch(function (error) {
@@ -50,5 +70,23 @@ function renderTodo(todos) {
         </tr>
         `)
     }
+}
+
+function deleteTodo() {
+    // grab the data/id from the appended button
+    let todoId = $(this).parents('tr').data('todo-id');
+    console.log('in delete todo', todoId);
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${todoId}`
+    }).then(() => {
+        console.log('DELETE /todo success')
+        refreshTodo();
+    })
+    .catch((err) => {
+        alert('failed to delete book')
+        console.log('Delete /todo failed', err)
+    })
 
 }
