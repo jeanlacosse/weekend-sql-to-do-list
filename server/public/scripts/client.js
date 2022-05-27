@@ -66,11 +66,22 @@ function renderTodo(todos) {
         data-todo-completed="${todo.completed}"
         >
           <td>${todo.list_item}</td>
-          <td>${todo.completed}</td>
-          <td><button class="deleteBtn">Delete</button></td>
+          <td class="completedMark"></td>
           <td><button class="doneBtn">Mark as done</button></td>
+          <td><button class="deleteBtn">Delete</button></td>
         </tr>
-        `)
+        `);
+
+        // append diff emojis depending on if completed or not
+        if (todo.completed === true) {
+            $(`.completedMark`).last().append(`
+                ✅
+            `)
+        }
+        else if (todo.completed === false)
+            $(`.completedMark`).last().append(`
+                ❌
+            `)
     }
 }
 
