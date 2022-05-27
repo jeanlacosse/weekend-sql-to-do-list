@@ -2,18 +2,19 @@ Startup
     [x] create file structure
         [x]publuc, modules, server, routers, sql
             [x] source in jquery
-            [] create a pool module
+            [x] create a pool module
     [x] npm install express, body parser, nodemon, pg
         [x] create start script
     [x] create DB weekend-to-do-app in postico
         [X] run sql to create table
             [X] needs id, list_item, completed
+    [x] setup server and client w/ required npm and port listener
 
 HTML
-    [] h1 for list name
-    [] create to-do input box for the todo item
-    [] submit button ofr item
-    [] ul where it will be appended
+    [x] h1 for list name
+    [x] create to-do input box for the todo item
+    [x] submit button ofr item
+    [x] ul where it will be appended
 
 CRUD CAKE..!
 
