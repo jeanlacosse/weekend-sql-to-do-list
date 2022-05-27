@@ -1,13 +1,13 @@
 Startup
-    [] create file structure
-        []publuc, modules, server, routers, sql
-            [] source in jquery
+    [x] create file structure
+        [x]publuc, modules, server, routers, sql
+            [x] source in jquery
             [] create a pool module
-    [] npm install express, body parser, nodemon, pg
-        [] create start script
-    [] create DB weekend-to-do-app in postico
-        [] run sql to create table
-            [] needs id, list_item, completed
+    [x] npm install express, body parser, nodemon, pg
+        [x] create start script
+    [x] create DB weekend-to-do-app in postico
+        [X] run sql to create table
+            [X] needs id, list_item, completed
 
 HTML
     [] h1 for list name
@@ -52,3 +52,10 @@ DELETE
     [] server router.delete
         [] use '/:id' to get the item sent from client
             [] SQL DELETE to remove from the server
+
+
+CSS
+    [] change background color
+        [] fint family and size of font
+    [] change task color when completed
+        [] .addClass method on click?
