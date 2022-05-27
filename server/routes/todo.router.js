@@ -45,22 +45,49 @@ router.delete('/:id', (req, res) => {
     // this is the url sent over from client
     let todoId = req.params.id;
     const sqlQuery = `
-    DELETE FROM todo_list
+    DELETE FROM "todo-list"
     WHERE id = $1;
     `;
-  
+
     const sqlParams = [
-      todoId
+        todoId
     ];
-  
-    console.log('in DELETE /books', todoId);
-  
+
+    console.log('in DELETE /todo', todoId);
+
     pool.query(sqlQuery, sqlParams)
-      .then(() => {
-        res.sendStatus(200);
-      })
-      .catch((err) => {
-        console.log(`DELETE to db failed: ${err}`);
-        res.sendStatus(500);
-      });
-  });
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(`DELETE to db failed: ${err}`);
+            res.sendStatus(500);
+        });
+});
+
+router.put('/:id', (req, res) => {
+    console.log('updating todo', req.params.id, req.body.isMarked);
+    // params = id of this
+    // body = true
+    let todoId = req.params.id;
+
+    const sqlQuery = `
+    UPDATE "todo-list"
+    SET "completed" = $2
+    WHERE id = $1;
+    `;
+
+    const sqlParams = [
+        todoId, // $1
+        req.body.isMarked // $2, 
+    ]
+
+    pool.query(sqlQuery, sqlParams)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(`PUT to db failed: ${err}`);
+            res.sendStatus(500);
+        });
+})
