@@ -45,7 +45,7 @@ router.delete('/:id', (req, res) => {
     // this is the url sent over from client
     let todoId = req.params.id;
     const sqlQuery = `
-    DELETE FROM todo_list
+    DELETE FROM "todo-list"
     WHERE id = $1;
     `;
   
@@ -53,7 +53,7 @@ router.delete('/:id', (req, res) => {
       todoId
     ];
   
-    console.log('in DELETE /books', todoId);
+    console.log('in DELETE /todo', todoId);
   
     pool.query(sqlQuery, sqlParams)
       .then(() => {

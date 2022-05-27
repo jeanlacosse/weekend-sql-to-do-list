@@ -16,6 +16,7 @@ function handleSubmit() {
     let todo = {};
     todo.list_item = $('#listItem').val();
     addTodo(todo);
+    $("#listItem").val('');
 }
 
 function addTodo(todo) {
@@ -66,7 +67,7 @@ function renderTodo(todos) {
           <td>${todo.list_item}</td>
           <td>${todo.completed}</td>
           <td><button class="deleteBtn">Delete</button></td>
-          <td><button class="readBtn">Read?</button></td>
+          <td><button class="readBtn">Mark as done</button></td>
         </tr>
         `)
     }
@@ -87,6 +88,6 @@ function deleteTodo() {
     .catch((err) => {
         alert('failed to delete book')
         console.log('Delete /todo failed', err)
-    })
+    });
 
-}
+};

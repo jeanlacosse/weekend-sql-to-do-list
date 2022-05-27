@@ -50,9 +50,9 @@ DELETE
     [x] client ajax delete
         [x] use the id data and (this) to get the id current item
         [x] send that id to the server
-    [] server router.delete
-        [] use '/:id' to get the item sent from client
-            [] SQL DELETE to remove from the server
+    [x] server router.delete
+        [x] use '/:id' to get the item sent from client
+            [x] SQL DELETE to remove from the server
 
 
 CSS
