@@ -2,7 +2,7 @@ Startup
     [x] create file structure
         [x]publuc, modules, server, routers, sql
             [x] source in jquery
-            [x] create a pool module
+            [] create a pool module
     [x] npm install express, body parser, nodemon, pg
         [x] create start script
     [x] create DB weekend-to-do-app in postico
