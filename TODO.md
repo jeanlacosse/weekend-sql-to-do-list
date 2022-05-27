@@ -38,13 +38,13 @@ READ
         [x] sends back info to client to append
 
 UPDATE
-    [] client ajax put
-        [] create variable for both id and completed
-        [] send the SQL table.completed as info to the server
-            [] convert the above from false to true
-    [] server router.post
-        [] use '/:id/ to get the id num from client and send in an SQL
-            [] use an UPDATE to change from false to true
+    [x] client ajax put
+        [x] create variable for both id and completed
+        [x] send the SQL table.completed as info to the server
+            [x] convert the above from false to true
+    [x] server router.post
+        [x] use '/:id/ to get the id num from client and send in an SQL
+            [x] use an UPDATE to change from false to true
 
 DELETE
     [x] client ajax delete
@@ -60,3 +60,4 @@ CSS
         [] fint family and size of font
     [] change task color when completed
         [] .addClass method on click?
+        [] create an if statement to replace the true/false under completed

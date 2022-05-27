@@ -8,6 +8,7 @@ function addClickHandlers() {
     $('#submitBtn').on('click', handleSubmit);
     //   create handlers for delete and completed item
     $(document).on('click', '.deleteBtn', deleteTodo)
+    $(document).on('click', '.doneBtn', markAsDone)
 }
 
 function handleSubmit() {
@@ -67,7 +68,7 @@ function renderTodo(todos) {
           <td>${todo.list_item}</td>
           <td>${todo.completed}</td>
           <td><button class="deleteBtn">Delete</button></td>
-          <td><button class="readBtn">Mark as done</button></td>
+          <td><button class="doneBtn">Mark as done</button></td>
         </tr>
         `)
     }
@@ -85,9 +86,35 @@ function deleteTodo() {
         console.log('DELETE /todo success')
         refreshTodo();
     })
-    .catch((err) => {
-        alert('failed to delete book')
-        console.log('Delete /todo failed', err)
-    });
+        .catch((err) => {
+            alert('failed to delete book')
+            console.log('Delete /todo failed', err)
+        });
 
+};
+
+function markAsDone() {
+    let todoId = $(this).parents('tr').data('todo-id');
+    // true or false
+    let isMarked = $(this).parents('tr').data('todo-completed');
+
+    console.log('in markAsDone', isMarked);
+
+    // create variable to change true to false
+    const toggleMarked = {
+        isMarked: !isMarked
+    };
+
+    $.ajax({
+        method: 'PUT',
+        url: '/todo/' + todoId,
+        //  send opposite of current mark to router
+        data: toggleMarked
+    }).then(() => {
+        console.log('PUT /todo success')
+        refreshTodo();
+    })
+        .catch((err) => {
+            console.log('read /todo failed', err)
+        });
 };
