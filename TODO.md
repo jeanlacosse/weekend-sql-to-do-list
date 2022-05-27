@@ -58,6 +58,6 @@ DELETE
 CSS
     [] change background color
         [] fint family and size of font
-    [] change task color when completed
-        [] .addClass method on click?
-        [] create an if statement to replace the true/false under completed
+    [x] change task color when completed
+        [x] .addClass method on click?
+        [x] create an if statement to replace the true/false under completed
