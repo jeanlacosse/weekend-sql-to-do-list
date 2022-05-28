@@ -72,8 +72,8 @@ STRETCH GOALS
     [] alert for yes/no when hitting delete
         [] bootstrap modal / sweet alerts
 
-    [] reverse order of returned todos
-        [] id reverse query params, desc
+    [x] reverse order of returned todos
+        [x] id reverse query params, desc
 
-    [] record and show the time/date of when a task was completed
-        [] probably use moment()
+    [x] record and show the time/date of when a task was completed
+        [x] probably use moment() on server
