@@ -9,6 +9,7 @@ h1 {
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
     background: rgb(16,144,93);
 background: linear-gradient(0deg, rgba(16,144,93,1) 16%, rgba(35,219,149,1) 100%);
 }
@@ -17,3 +18,54 @@ background: linear-gradient(0deg, rgba(16,144,93,1) 16%, rgba(35,219,149,1) 100%
     font-family: cursive;
 }
 
+#inputArea {
+    border: 2px solid;
+    padding: 14px;
+}
+
+#outputArea {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 35rem;
+    padding-top: 25px;
+}
+    
+thead {
+    font-size: 25px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 12px;
+}
+
+tbody {
+    font-size: 23px;
+}
+
+label {
+    font-size: 23px;
+}
+
+button {
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: beige;
+    width: 101%;
+}
+
+#submitBtn {
+    width: 20%;
+}
+
+#listItem {
+    height: 28px;
+    font-size: 22px;
+    width: 31%;
+    background-color: #a6edb9;
+}
+
+td, tr {
+    border-bottom: 2px solid black;
+}
