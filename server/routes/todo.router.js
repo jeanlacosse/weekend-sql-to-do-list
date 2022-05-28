@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const pool = require('../modules/pool');
+const moment = require('moment');
 
 module.exports = router;
 
 // GET for router, will grab the current todo list
 router.get('/', (req, res) => {
-    let queryText =`
+    let queryText = `
     SELECT * FROM "todo-list" 
     ORDER BY "id" DESC;
     `;
@@ -67,20 +68,27 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    console.log('updating todo', req.params.id, req.body.isMarked);
+    // create the moment to add to the DB
+    const start = moment().format('LLL');
+    console.log(moment(start));
+
+    console.log('updating todo', req.params.id, req.body.isMarked, start);
     // params = id of this
     // body = true
     let todoId = req.params.id;
 
     const sqlQuery = `
     UPDATE "todo-list"
-    SET "completed" = $2
+    SET 
+        "completed" = $2,
+        "time_completed" = $3
     WHERE id = $1;
     `;
 
     const sqlParams = [
         todoId, // $1
-        req.body.isMarked // $2, 
+        req.body.isMarked, // $2, 
+        start, // $3
     ]
 
     pool.query(sqlQuery, sqlParams)

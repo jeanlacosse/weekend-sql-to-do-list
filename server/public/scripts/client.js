@@ -4,6 +4,8 @@ $(document).ready(function () {
     addClickHandlers();
 });
 
+
+
 function addClickHandlers() {
     $('#submitBtn').on('click', handleSubmit);
     //   create handlers for delete and completed item
@@ -55,6 +57,7 @@ function refreshTodo() {
 
 function renderTodo(todos) {
     $('#listArea').empty();
+    
 
     // loop over todo list and append to the DOM
     for (let todo of todos) {
@@ -67,15 +70,20 @@ function renderTodo(todos) {
         >
           <td>${todo.list_item}</td>
           <td class="completedMark"></td>
+          <td class="timeComplete"></td>
           <td><button class="doneBtn">Mark as done</button></td>
           <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `);
 
+        
         // append diff emojis depending on if completed or not
         if (todo.completed === true) {
             $(`.completedMark`).last().append(`
                 ✅
+            `);
+            $(".timeComplete").last().append(`
+            ${todo.time_completed}
             `)
         }
         else if (todo.completed === false)
