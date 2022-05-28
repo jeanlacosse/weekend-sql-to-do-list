@@ -7,9 +7,10 @@ module.exports = router;
 
 // GET for router, will grab the current todo list
 router.get('/', (req, res) => {
-    let queryText =
-        `SELECT * FROM "todo-list" 
-    ORDER BY "id";`;
+    let queryText =`
+    SELECT * FROM "todo-list" 
+    ORDER BY "id" DESC;
+    `;
     // send query text to DB
     pool.query(queryText)
         .then(result => {

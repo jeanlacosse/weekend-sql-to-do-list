@@ -56,8 +56,24 @@ DELETE
 
 
 CSS
-    [] change background color
-        [] fint family and size of font
+    [x] change background color
+        [x] fint family and size of font
     [x] change task color when completed
         [x] .addClass method on click?
         [x] create an if statement to replace the true/false under completed
+
+STRETCH GOALS
+    [] be sure to branch and merge each new feature!
+
+    [] add in bootstrap and style it with that 
+        [] add item and mark as done green, delete red
+        [] change text input
+
+    [] alert for yes/no when hitting delete
+        [] bootstrap modal / sweet alerts
+
+    [] reverse order of returned todos
+        [] id reverse query params, desc
+
+    [] record and show the time/date of when a task was completed
+        [] probably use moment()
