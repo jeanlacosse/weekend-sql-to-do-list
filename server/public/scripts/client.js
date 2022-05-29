@@ -5,7 +5,6 @@ $(document).ready(function () {
 });
 
 
-
 function addClickHandlers() {
     $('#submitBtn').on('click', handleSubmit);
     //   create handlers for delete and completed item
@@ -57,7 +56,7 @@ function refreshTodo() {
 
 function renderTodo(todos) {
     $('#listArea').empty();
-    
+
 
     // loop over todo list and append to the DOM
     for (let todo of todos) {
@@ -72,11 +71,12 @@ function renderTodo(todos) {
           <td class="completedMark"></td>
           <td class="timeComplete"></td>
           <td><button class="doneBtn">Mark as done</button></td>
-          <td><button class="deleteBtn">Delete</button></td>
+          <!-- Trigger the modal with a button -->
+          <td><button type="button" class="deleteBtn">Delete Item</button></td>
         </tr>
         `);
 
-        
+
         // append diff emojis depending on if completed or not
         if (todo.completed === true) {
             $(`.completedMark`).last().append(`
@@ -98,42 +98,55 @@ function deleteTodo() {
     let todoId = $(this).parents('tr').data('todo-id');
     console.log('in delete todo', todoId);
 
-    $.ajax({
-        method: 'DELETE',
-        url: `/todo/${todoId}`
-    }).then(() => {
-        console.log('DELETE /todo success')
-        refreshTodo();
+    swal({
+        title: "Are you sure you want to delete this item?",
+        text: "This item will be removed from your to do list",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method: 'DELETE',
+                url: `/todo/${todoId}`
+            }).then(() => {
+                console.log('DELETE /todo success')
+                refreshTodo();
+            })
+                .catch((err) => {
+                    alert('failed to delete book')
+                    console.log('Delete /todo failed', err)
+                });
+        } else {
+            swal("Item not deleted");
+        }
+       
     })
-        .catch((err) => {
-            alert('failed to delete book')
-            console.log('Delete /todo failed', err)
-        });
 
-};
-
-function markAsDone() {
-    let todoId = $(this).parents('tr').data('todo-id');
-    // true or false
-    let isMarked = $(this).parents('tr').data('todo-completed');
-
-    console.log('in markAsDone', isMarked);
-
-    // create variable to change true to false
-    const toggleMarked = {
-        isMarked: !isMarked
     };
 
-    $.ajax({
-        method: 'PUT',
-        url: '/todo/' + todoId,
-        //  send opposite of current mark to router
-        data: toggleMarked
-    }).then(() => {
-        console.log('PUT /todo success')
-        refreshTodo();
-    })
-        .catch((err) => {
-            console.log('read /todo failed', err)
-        });
-};
+    function markAsDone() {
+        let todoId = $(this).parents('tr').data('todo-id');
+        // true or false
+        let isMarked = $(this).parents('tr').data('todo-completed');
+
+        console.log('in markAsDone', isMarked);
+
+        // create variable to change true to false
+        const toggleMarked = {
+            isMarked: !isMarked
+        };
+
+        $.ajax({
+            method: 'PUT',
+            url: '/todo/' + todoId,
+            //  send opposite of current mark to router
+            data: toggleMarked
+        }).then(() => {
+            console.log('PUT /todo success')
+            refreshTodo();
+        })
+            .catch((err) => {
+                console.log('read /todo failed', err)
+            });
+    };
