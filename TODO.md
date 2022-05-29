@@ -63,14 +63,14 @@ CSS
         [x] create an if statement to replace the true/false under completed
 
 STRETCH GOALS
-    [] be sure to branch and merge each new feature!
+    [x] be sure to branch and merge each new feature!
 
     [] add in bootstrap and style it with that 
         [] add item and mark as done green, delete red
         [] change text input
 
-    [] alert for yes/no when hitting delete
-        [] bootstrap modal / sweet alerts
+    [x] alert for yes/no when hitting delete
+        [x] bootstrap modal / sweet alerts
 
     [x] reverse order of returned todos
         [x] id reverse query params, desc
