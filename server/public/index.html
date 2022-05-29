@@ -33,38 +33,20 @@
         <section id="inputArea">
             <h3>Add New Item</h3>
             <label>New To Do Item:</label><input type="text" name="" value="" id="listItem" size="50">
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Some text in the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <button type="button" id="submitBtn">Add To List</button>
+           
+              <button type="button" id="submitBtn" class="btn btn-success">Add To List</button>
         </section>
 
         <section id="outputArea">
 
-            <table>
+            <table class="table-striped table-hover table">
                 <thead>
                     <tr>
-                        <th>To Do</th>
-                        <th>Completed</th>
+                        <th class="todo">To Do</th>
+                        <th class="timeComplete">Completed</th>
                         <th class="timeComplete">Time/Date Finished</th>
                         <th></th>
-                        <th>Delete</th>
+                        <th></th>
                     </tr>
                 </thead>
 
