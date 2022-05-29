@@ -70,9 +70,8 @@ function renderTodo(todos) {
           <td>${todo.list_item}</td>
           <td class="completedMark"></td>
           <td class="timeComplete"></td>
-          <td><button class="doneBtn">Mark as done</button></td>
-          <!-- Trigger the modal with a button -->
-          <td><button type="button" class="deleteBtn">Delete Item</button></td>
+          <td><button class="doneBtn btn btn-success">Mark as done</button></td>
+          <td><button type="button" class="deleteBtn btn btn-danger">Delete Item</button></td>
         </tr>
         `);
 

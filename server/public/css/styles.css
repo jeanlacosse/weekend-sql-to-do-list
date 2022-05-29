@@ -10,8 +10,8 @@ h1 {
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    background: rgb(16,144,93);
-background: linear-gradient(0deg, rgba(16,144,93,1) 16%, rgba(35,219,149,1) 100%);
+    background: rgb(85,138,117);
+background: linear-gradient(0deg, rgba(85,138,117,1) 16%, rgba(163,255,220,1) 100%);
 }
 
 #cursive {
@@ -60,15 +60,13 @@ button {
 }
 
 #listItem {
-    height: 28px;
+    height: 35px;
     font-size: 22px;
     width: 31%;
     background-color: #a6edb9;
 }
 
-td, tr {
-    border-bottom: 2px solid black;
-}
+
 
 .timeComplete {
     font-size: 16px;
